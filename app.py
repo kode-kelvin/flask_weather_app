@@ -16,15 +16,15 @@ def test():
     else:
         city = request.args.get('city')
         CITY = city
-        API_KEY = "30d4741c779ba94c470ca1f63045390a" # Your API key
+        API_KEY = "30d4741c779ba94c470ca1f63045390a" 
         URL = f"https://api.openweathermap.org/data/2.5/weather?q={CITY}&appid={API_KEY}"
         response = requests.get(URL)
         if response.status_code == '404':
             error = 'City not found'
             return render_template('index.html', data=error)
         else:
-            data = response.json()# retrieving data in the json format
-            main = data['main']  # the main block from api block
+            data = response.json()
+            main = data['main']
             """getting all data needed from the block. temp, humidity etc"""
             temperature = round(main['temp'] - 273.15)
             temp_feel_like = main['feels_like']
