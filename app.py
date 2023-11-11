@@ -16,7 +16,7 @@ def test():
     else:
         city = request.args.get('city')
         CITY = city
-        API_KEY = "30d4741c779ba94c470ca1f63045390a" 
+        API_KEY = "YOUR API KEY" 
         URL = f"https://api.openweathermap.org/data/2.5/weather?q={CITY}&appid={API_KEY}"
         response = requests.get(URL)
         if response.status_code == '404':
